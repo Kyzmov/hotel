@@ -35,7 +35,7 @@ function reservationForm() {
                 'Apartment': 100
             };
             if (roomPrices[this.roomType]) {
-                this.totalPrice = this.nights * roomPrices[this.roomType] * this.guests;
+                this.totalPrice = this.nights * roomPrices[this.roomType];
                 console.log('Total price calculated:', this.totalPrice);
             } else {
                 this.totalPrice = 0;
@@ -55,6 +55,16 @@ function reservationForm() {
             console.log('Departure date:', this.departureDate);
             console.log('Room type:', this.roomType);
             console.log('Guests:', this.guests);
+        },
+        submitForm() {
+            if (this.validateForm()) {
+                // Submit form logic here
+                console.log('Form submitted successfully!');
+            } else {
+                console.log('Form validation failed.');
+            }
+
+
 
             // Check if all required fields are filled and valid
             const isValid = this.name && 

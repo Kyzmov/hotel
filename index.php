@@ -12,25 +12,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
 </head>
 <body class="font-sans bg-gray-100">
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="flex items-center">
-                <img src="images/logo.png" alt="Хестея лого" class="h-12 w-auto">
-            </a>
-            <div class="space-x-4">
+<header class="bg-white shadow-md fixed w-full top-0 z-50 transition-all duration-300" x-data="{ isSticky: false }" @scroll.window="isSticky = (window.pageYOffset > 50) ? true : false" :class="{ 'py-2': isSticky, 'py-4': !isSticky }">
+    <nav class="container mx-auto px-6 flex justify-between items-center">
+        <a href="#" class="flex items-center">
+            <img src="images/logo.png" alt="Hesteya logo" class="h-12 w-auto">
+        </a>
+        <div class="flex-1 flex justify-center">
+            <div class="space-x-4 flex items-center">
                 <a href="#rooms" class="text-gray-700 hover:text-gray-900">Хотел</a>
                 <a href="#restaurant" class="text-gray-700 hover:text-gray-900">Ресторант</a>
                 <a href="#gallery" class="text-gray-700 hover:text-gray-900">Галерия</a>
                 <a href="#contact" class="text-gray-700 hover:text-gray-900">Контакти</a>
-                <a href="#reservation" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Резервация</a>
-                <select id="language-switcher" class="bg-gray-100 rounded" onchange="switchLanguage()">
-                    <option value="bg">BG</option>
-                    <option value="en">EN</option>
-                </select>
-                
-             </div>
-        </nav>
-    </header>
+            </div>
+        </div>
+        <div class="space-x-4 flex items-center">
+            <a href="#reservation" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">Резервация</a>
+            <div class="hidden md:flex items-center space-x-4">
+                <span class="text-gray-700"><i class="fas fa-phone-alt"></i> +359 37 993 666</span>
+                <span class="text-gray-700"><i class="fas fa-envelope"></i> info@hesteya.bg</span>
+            </div>
+            <select id="language-switcher" class="bg-gray-100 rounded" onchange="switchLanguage()">
+                <option value="bg">BG</option>
+                <option value="en">EN</option>
+                <option value="tr">TR</option>
+            </select>
+        </div>
+    </nav>
+</header>
     <script src="language-switcher.js"></script> <!-- Link to your external JS file -->
 </body>
 
